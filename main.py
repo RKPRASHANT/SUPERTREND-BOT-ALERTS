@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import requests
+import os
 
 # === CONFIG ===
 CRYPTO_LIST = ["WLD-USD", "XRP-USD", "DOT-USD", "ADA-USD", "LINK-USD"]
@@ -8,8 +9,8 @@ INTERVAL = "15m"
 PERIOD = "1d"
 ATR_PERIOD = 10
 FACTOR = 3.0
-BOT_TOKEN = "7047452384:AAG54yMe2IndhiGQ90ZsiRHZBsQdaeHiH8o"  # Replace with your token
-CHAT_ID = "5360673914"      # Replace with your chat ID
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 # === LOOP THROUGH EACH COIN ===
 for coin in CRYPTO_LIST:
